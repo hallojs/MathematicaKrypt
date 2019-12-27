@@ -1,0 +1,225 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7239,        217]
+NotebookOptionsPosition[      6833,        198]
+NotebookOutlinePosition[      7187,        214]
+CellTagsIndexPosition[      7144,        211]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"RSA", "-", "Schluesselerzeugung"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"AUSGABE", ":", " ", 
+     RowBox[{
+     "\[CapitalODoubleDot]ffentlicher", " ", "Schl\[CapitalUDoubleDot]ssel", 
+      " ", "Kpub"}]}], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"n", ",", "e"}], ")"}], " ", "und", " ", "privater", " ", 
+      "Schl\[UDoubleDot]ssel", " ", "Kpr"}], "=", 
+     RowBox[{"(", "d", ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "1.", " ", "W\[ADoubleDot]hle", " ", "zwei", " ", "gro\[SZ]e", " ", 
+    "Primzahlen", " ", "p", " ", "und", " ", "q"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"p", "=", 
+     RowBox[{"Prime", "[", "102", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"q", "=", 
+     RowBox[{"Prime", "[", "200", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"2.", " ", "Berechne", " ", "n"}], "=", " ", 
+     RowBox[{"p", "*", "q"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"n", "=", 
+     RowBox[{"p", "*", "q"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"3.", " ", "Berechne", " ", "phi", 
+      RowBox[{"(", "n", ")"}]}], "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"p", "-", "1"}], ")"}], "*", 
+      RowBox[{"(", 
+       RowBox[{"q", "-", "1"}], ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"phi", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"p", "-", "1"}], ")"}], "*", 
+      RowBox[{"(", 
+       RowBox[{"q", "-", "1"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "4.", " ", "W\[ADoubleDot]hle", " ", "den", " ", 
+       "\[ODoubleDot]ffentlichen", " ", "Exponenten", " ", "1"}], " ", 
+      "\[LessEqual]", " ", "e", " ", "\[LessEqual]", " ", 
+      RowBox[{"phi", "-", "1"}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"sodass", "  ", "der", " ", "ggt", 
+       RowBox[{"(", 
+        RowBox[{"e", ",", " ", "phi"}], ")"}]}], "=", "1"}]}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"e", "=", 
+     RowBox[{"phi", "-", "10"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"While", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"GCD", "[", 
+        RowBox[{"e", ",", "phi"}], "]"}], "\[NotEqual]", "1"}], ",", 
+      RowBox[{"e", "--"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{
+     "5.", " ", "Berechne", " ", "den", " ", "privaten", " ", 
+      "Schl\[UDoubleDot]ssel", " ", "d"}], ",", " ", 
+     RowBox[{
+      RowBox[{"sodass", " ", "d", "*", "e"}], " ", "\[Congruent]", " ", 
+      RowBox[{"1", " ", "mod", " ", "phi"}]}]}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"d", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"ExtendedGCD", "[", 
+        RowBox[{"phi", ",", "e"}], "]"}], "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.723967660465928*^9, 3.7239679451813107`*^9}, {
+   3.723968053555029*^9, 3.723968228113443*^9}, {3.7239682624548798`*^9, 
+   3.723968372194995*^9}, {3.723968406856629*^9, 3.723968407313045*^9}, {
+   3.723968464989622*^9, 3.723968626787075*^9}, {3.723968676895616*^9, 
+   3.723968753559597*^9}, {3.7239688424139967`*^9, 3.723968893429329*^9}, {
+   3.723969316423183*^9, 3.7239693436913633`*^9}, 3.723970401835039*^9, 
+   3.723970446857027*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"RSA", " ", "Verschl\[UDoubleDot]sselun"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "Gegeben", " ", "seien", " ", "der", " ", "\[ODoubleDot]ffentliche", " ",
+       "Schl\[UDoubleDot]ssel", " ", 
+      RowBox[{"(", 
+       RowBox[{"n", ",", "e"}], ")"}]}], "=", 
+     RowBox[{
+      RowBox[{"Kpub", " ", "und", " ", "der", " ", "Klartext", " ", "x"}], 
+      "=", 
+      RowBox[{
+       RowBox[{
+       "4.", " ", "Die", " ", "Verschl\[UDoubleDot]sselungsfunktion", " ", 
+        RowBox[{"ist", ":", " ", "y"}]}], "=", " ", 
+       RowBox[{
+        RowBox[{"eKpub", 
+         RowBox[{"(", "x", ")"}]}], "\[Congruent]", 
+        RowBox[{
+         RowBox[{"x", "^", "e"}], " ", "mod", " ", "n", " ", "mit", " ", 
+         "x"}]}]}]}]}], ",", 
+    RowBox[{"y", "\[Element]", 
+     RowBox[{"Zn", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"x", "=", "681210"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"y", "=", 
+     RowBox[{"Mod", "[", 
+      RowBox[{
+       RowBox[{"x", "^", "e"}], ",", "n"}], "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.723969568629277*^9, 3.723969765252182*^9}, {
+  3.723969798453451*^9, 3.72396993610983*^9}, {3.723970158818882*^9, 
+  3.723970159249238*^9}, {3.723970419077919*^9, 3.7239704271469316`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"RSA", " ", "Endschl\[UDoubleDot]sselung"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "Gegeben", " ", "seien", " ", "der", " ", "private", " ", 
+      "Schl\[UDoubleDot]ssel", " ", 
+      RowBox[{"(", "d", ")"}]}], "=", 
+     RowBox[{
+      RowBox[{"Kpr", " ", "und", " ", "das", " ", "Chiffrat", " ", 
+       RowBox[{"y", ".", " ", "Die"}], " ", 
+       "Endschl\[UDoubleDot]sselungsfunktion", " ", 
+       RowBox[{"ist", ":", "x"}]}], "=", 
+      RowBox[{
+       RowBox[{"dKpr", 
+        RowBox[{"(", "y", ")"}]}], "\[Congruent]", 
+       RowBox[{
+        RowBox[{"y", "^", "d"}], " ", "mod", " ", "n", " ", "mit", " ", 
+        "x"}]}]}]}], ",", 
+    RowBox[{"y", "\[Element]", 
+     RowBox[{"Zn", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Mod", "[", 
+   RowBox[{
+    RowBox[{"y", "^", "d"}], ",", "n"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.723969940036749*^9, 3.723969994638925*^9}, {
+  3.7239700290364113`*^9, 3.723970147917233*^9}}],
+
+Cell[BoxData["681210"], "Output",
+ CellChangeTimes->{
+  3.723969963544669*^9, 3.723969995307537*^9, {3.723970155808572*^9, 
+   3.7239701617261868`*^9}, {3.723970404800735*^9, 3.723970430133449*^9}}]
+}, Open  ]]
+},
+WindowSize->{808, 618},
+WindowMargins->{{89, Automatic}, {Automatic, 15}},
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 28, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3577, 97, 364, "Input"],
+Cell[4138, 119, 1391, 38, 151, "Input"],
+Cell[CellGroupData[{
+Cell[5554, 161, 1062, 29, 130, "Input"],
+Cell[6619, 192, 198, 3, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
